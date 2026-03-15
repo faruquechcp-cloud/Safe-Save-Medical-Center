@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Safety styles for logo */
+.sidebar-logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+/* Force Interactivity - Targeted Fix */
+html, body, #root {
+  pointer-events: auto !important;
+  user-select: auto !important;
+  overflow: auto !important;
+  opacity: 1 !important;
+  filter: none !important;
+  visibility: visible !important;
+  height: 100%;
+  width: 100%;
+  font-family: var(--font-app-main) !important;
+}
+
+/* Ensure modals and overlays are interactive but don't block everything */
+.modal-overlay, .fixed-overlay {
+    pointer-events: auto !important;
+}
+
+/* Ensure SVGs are rendered correctly and not affected by font issues */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* Hide spin buttons for number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Premium Card & Glass Effect */
+.premium-card {
+  background-color: white;
+  border-radius: 32px;
+  border: 1px solid white;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+.premium-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transform: translateY(-4px);
+}
+
+.glass-panel {
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Table Enhancements */
+.custom-table-header {
+  background-color: #0f172a;
+  color: #94a3b8;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  padding: 1rem 1.5rem;
+}
+
+/* Form Styles */
+input, select, textarea {
+    border: 1px solid #e2e8f0;
+    background-color: rgba(248, 250, 252, 0.5);
+    outline: none;
+    transition: all 0.2s ease;
+    border-radius: 1rem;
+    padding: 0.75rem 1.25rem;
+    font-weight: 700;
+    color: #334155;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+    margin: 2rem 0;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+}
